@@ -15,20 +15,11 @@
       @setState @getInitialState()
     , 'JSON'
   valid: ->
-     @state.date && @state.title && @state.amount
+     @state.condition && @state.title && @state.value
   render: ->
     React.DOM.form
       className: 'form-inline'
       onSubmit: @handleSubmit
-      React.DOM.div
-        className: 'form-group'
-        React.DOM.input
-          type: 'text'
-          className: 'form-control'
-          placeholder: 'Date'
-          name: 'date'
-          value: @state.date
-          onChange: @handleChange
       React.DOM.div
         className: 'form-group'
         React.DOM.input
@@ -41,9 +32,18 @@
       React.DOM.div
         className: 'form-group'
         React.DOM.input
+          type: 'text'
+          className: 'form-control'
+          placeholder: 'Condition'
+          name: 'condition'
+          value: @state.condition
+          onChange: @handleChange
+      React.DOM.div
+        className: 'form-group'
+        React.DOM.input
           type: 'number'
           className: 'form-control'
-          placeholder: 'Amount'
+          placeholder: 'Value'
           name: 'amount'
           value: @state.amount
           onChange: @handleChange
@@ -51,4 +51,4 @@
         type: 'submit'
         className: 'btn btn-primary'
         disabled: !@valid()
-        'Create record'
+        'Create entry'

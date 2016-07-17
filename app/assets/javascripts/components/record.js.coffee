@@ -10,7 +10,7 @@
     e.preventDefault()
     data =
       title: @refs.title.value
-      date: @refs.date.value
+      condition: @refs.condition.value
       amount: @refs.amount.value
     $.ajax
       method: 'PUT'
@@ -31,7 +31,7 @@
         @props.handleDeleteRecord @props.record
   recordRow: ->
     React.DOM.tr null,
-      React.DOM.td null, @props.record.date
+      React.DOM.td null, @props.record.condition
       React.DOM.td null, @props.record.title
       React.DOM.td null, amountFormat(@props.record.amount)
       React.DOM.td null,
@@ -49,14 +49,14 @@
         React.DOM.input
           className: 'form-control'
           type: 'text'
-          defaultValue: @props.record.date
-          ref: 'date'
+          defaultValue: @props.record.title
+          ref: 'title'
       React.DOM.td null,
         React.DOM.input
           className: 'form-control'
           type: 'text'
-          defaultValue: @props.record.title
-          ref: 'title'
+          defaultValue: @props.record.condition
+          ref: 'condition'
       React.DOM.td null,
         React.DOM.input
           className: 'form-control'
@@ -67,7 +67,7 @@
         React.DOM.a
           className: 'btn btn-default'
           onClick: @handleEdit
-          'Update'
+          'Upcondition'
         React.DOM.a
           className: 'btn btn-danger'
           onClick: @handleToggle
