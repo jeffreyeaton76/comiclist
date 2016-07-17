@@ -15,5 +15,40 @@
  @import "bootstrap";
 
  body {
-  padding: 5%;
+  padding: 0;
+  margin: 0;
+  background-color: #ede7c3;
+  font-family: 'Arial Black';
  }
+ #banner-image {
+  top: 0;
+  width: 100%;
+ }
+th {
+  background-color: #b61729;
+  color: white;
+  letter-spacing: 1px;
+}
+.panel > .panel-heading {
+    background-image: none;
+    background-color: #b61729;
+    color: white;
+}
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active {
+  color: #ffffff;
+  background-color: #0b4b17;
+  border-color: #285e8e;
+}
+.btn-danger,
+.btn-danger:hover,
+.btn-danger:focus,
+.btn-danger:active,
+.btn-danger.active {
+  color: #ffffff;
+  background-color: #002950;
+  border-color: #285e8e;
+}

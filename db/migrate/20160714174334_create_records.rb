@@ -2,7 +2,8 @@ class CreateRecords < ActiveRecord::Migration
   def change
     create_table :records do |t|
       t.string :title
-      t.date :date
+      t.integer :issue
+      t.string :condition
       t.float :amount
 
       t.timestamps null: false

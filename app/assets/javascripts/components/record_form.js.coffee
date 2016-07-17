@@ -3,7 +3,8 @@
 @RecordForm = React.createClass
   getInitialState: ->
     title: ''
-    date: ''
+    issue: ''
+    condition: ''
     amount: ''
   handleChange: (e) ->
     name = e.target.name
@@ -15,7 +16,7 @@
       @setState @getInitialState()
     , 'JSON'
   valid: ->
-     @state.condition && @state.title && @state.value
+     @state.condition && @state.title && @state.issue && @state.amount
   render: ->
     React.DOM.form
       className: 'form-inline'
@@ -28,6 +29,15 @@
           placeholder: 'Title'
           name: 'title'
           value: @state.title
+          onChange: @handleChange
+      React.DOM.div
+        className: 'form-group'
+        React.DOM.input
+          type: 'text'
+          className: 'form-control'
+          placeholder: 'Issue'
+          name: 'issue'
+          value: @state.issue
           onChange: @handleChange
       React.DOM.div
         className: 'form-group'
