@@ -12,6 +12,10 @@
     index = @state.records.indexOf record
     records = React.addons.update(@state.records, {$splice: [[index, 1]]})
     @replaceState records: records
+  updateRecord: (record, data) ->
+    index = @state.records.indexOf record
+    records = React.addons.update(@state.records, {$splice: [[index, 1, data]]})
+    @replaceState records: records
   credits: ->
     credits = @state.records.filter (val) -> val.amount >=0
     credits.reduce ((prev, curr) ->
@@ -41,11 +45,10 @@
         className: 'table table-bordered'
         React.DOM.thead null,
           React.DOM.tr null,
-            React.DOM.th null, 'ID'
             React.DOM.th null, 'Date'
             React.DOM.th null, 'Title'
             React.DOM.th null, 'Amount'
             React.DOM.th null, 'Actions'
         React.DOM.tbody null,
           for record in @state.records
-            React.createElement Record, key: record.id, record: record, handleDeleteRecord: @deleteRecord
+            React.createElement Record, key: record.id, record: record, handleDeleteRecord: @deleteRecord, handleEditRecord: @updateRecord
